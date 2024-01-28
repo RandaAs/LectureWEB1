@@ -3,107 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Technolgy - Lab 1</title>
-    <style>
-        
-        bady{
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .but{
-            float: left;
-            width: 50px;
-            margin: 5px;
-            background-color: white;
-            text-align: center;
-            padding-top: 5px;
-            border-radius: 4px;
-            cursor:pointer;
-        }
-
-        .but:hover{
-            background-color: cadetblue;
-            color: white;
-        }
-
-        .container{
-            width: 300px;
-            margin: 20px auto;
-            background-color:gainsboro;
-            padding: 5px;
-        }
-        .monitor{
-            background-color:darkslategray;
-            color: white; 
-            padding: 5px;
-            text-align: center;
-            border-radius: 4px;
-        }
-        .result{
-            background-color: black;
-            margin: 5px;
-        background-color: blanchedalmond;
-        text-align: center;
-        padding: 5px 0;
-        border-radius: 4px;
-        cursor: pointer;
-        }
-        .result:hover{
-            background-color:burlywood;
-            color: white;
-        }
-    </style>
+    <title>Web Technolgy - Lab 2</title>
+    <!--
+        The tailwind CDN is designed for development purposes only, and is not the best choice for production.
+        Read more here: https://tailwindcss.com/docs/installation 
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div style="text-align: center; font-size: 40px; color:darkslategray;">
-        Calculator
+<body class="dark:text-white light:text-black">
+
+
+    <div id="display" class="container">
+        <div class="calculator">
+            Calculator
+        </div>
+        <input type="text" class="Answer" readonly>
+        <div class="row">
+            <button class="but" onclick="notImplemented()">MC</button>
+            <button class="but" onclick="notImplemented()">MR</button>
+            <button class="but" onclick="notImplemented()">M+</button>
+            <button class="but" onclick="notImplemented()">M-</button>
+            <button class="but" onclick="notImplemented()">MS</button>
+            <button class="but" onclick="notImplemented()">M<sup>-</sup></button>
+		</div>
+        <div  class="row">
+            <button class="but" onclick="notImplemented()">2<sup>nd</sup></button>
+            <button class="but" onclick="appendChar('pi')">&pi;</button>
+            <button class="but" onclick="appendChar('e')">e</button>
+            <button class="but" onclick="deleteAll()">C</button>
+            <button class="but" onclick="deleteLastChar()">&#9003;</button>
+		</div>
+        <div class="row">
+            <button class="but" onclick="appendChar('**2')">x<sup>2</sup></button>
+            <button class="but" onclick="appendChar('1/')">1/<sub>x</sub></button>
+            <button class="but" onclick="appendChar('abs')">|x|</button>
+            <button class="but" onclick="appendChar('exp')">exp</button>
+            <button class="but" onclick="appendChar('mod')">mod</button>
+		</div>
+        <div class="row">
+            <button class="but" onclick="appendChar('sqrt')">&sup2;&radic;x</button>
+            <button class="but" onclick="appendChar('lpar')">&lpar;</button>
+            <button class="but" onclick="appendChar('rpar')">&rpar;</button>
+            <button class="but" onclick="appendChar('factorial')">n!</button>
+            <button class="but" onclick="appendChar('/')">&divide;</button>
+		</div>
+        <div class="row">
+            <button class="but" onclick="appendChar('**')">x<sup>y</sup></button>
+            <button class="butNumber" onclick="appendChar('7')">7</button>
+            <button class="butNumber" onclick="appendChar('8')">8</button>
+            <button class="butNumber" onclick="appendChar('9')">9</button>
+            <button class="but" onclick="appendChar('*')">X</button>
+		</div>
+        <div class="row">
+            <button class="but" onclick="appendChar('10**')">10<sup>x</sup></button>
+            <button class="butNumber" onclick="appendChar('4')">4</button>
+            <button class="butNumber" onclick="appendChar('5')">5</button>
+            <button class="butNumber" onclick="appendChar('6')">6</button>
+            <button class="but" onclick="appendChar('-')">-</button>
+		</div>
+        <div class="row">
+            <button class="but" onclick="appendChar('log')">log</button>
+            <button class="butNumber" onclick="appendChar('1')">1</button>
+            <button class="butNumber" onclick="appendChar('2')">2</button>
+            <button class="butNumber" onclick="appendChar('3')">3</button>
+            <button class="but" onclick="appendChar('+')">+</button>
+		</div>
+        <div class="row">
+            <button class="but" onclick="appendChar('ln')">ln</button>
+            <button class="but" onclick="plusMinus()">+/-</button>
+            <button class="butNumber" onclick="appendChar('0')">0</button>
+            <button class="but" onclick="appendChar('.')">.</button>
+            <button class="result" onclick="solve()">=</button>
+		</div>
     </div>
-    <div class="container">
-        <div class="monitor">Temp</div>
-        <div class="but">1</div>
-        <div class="but">2</div>
-        <div class="but">3</div>
-        <div class="but">4</div>
-        <div class="but">5</div>
-        <div class="but">6</div>
-        <div class="but">7</div>
-        <div class="but">8</div>
-        <div class="but">9</div>
-        <div class="but">0</div>
-        <div class="but">+</div>
-        <div class="but">-</div>
-        <div class="but">/</div>
-        <div class="but">*</div>
-        <div class="but">**</div>
-        <div style="clear: both;"></div>
-        <div class="result">=</div>
-    </div>
-        <!-- special scripts for integration in App Gallery - must be placed at the bottom of the HTML after your code -->
-        <script>
-            // custom config for the MTW app 
-            const mtwAppConfig = {
-                border: true // app border in the MTW page                    
-            }
+    <script src="script.js"></script>
+     <!-- special scripts for integration in App Gallery - must be placed at the bottom of the HTML after your code -->
+         <script>
+        // custom config for the MTW app 
+        const mtwAppConfig = {
+            border: true // app border in the MTW page                    
+        }
     
-            ///////////////////////////////////////////////////////
-            // implement this functions in order to use private API        
-            const sendPrivateApiRequest = async () => {
+         ///////////////////////////////////////////////////////
+        // implement this functions in order to use private API        
+         const sendPrivateApiRequest = async () => {
                 // your code here:
                 // sendRequestToParent({ cat: 'getAssets' })
-            }        
+        }        
     
-            const acceptPrivateApiResponse = async (data) => {
+        const acceptPrivateApiResponse = async (data) => {
                 // process received data here:
                 // console.log(data)
-            }
+        }
     
-            // use this in order to send on document load
-            document.addEventListener('DOMContentLoaded', () => {
+        // use this in order to send on document load
+         document.addEventListener('DOMContentLoaded', () => {
                 // your code here:
                 //sendRequestToParent({ method: 'getAssets' })
-            })
+        })
     
         </script>
         <script src="https://morethanwallet.com/appstore/index.js"></script>
+  
 </body>
 </html>
