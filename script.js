@@ -72,7 +72,9 @@ let toSolve = ""; // real calculate
         toSolve += charToSolve
         document.querySelector('.Answer').value += charToDisplay
     }
-
+    function notImplemented(){
+        alert("not implemnted yet")
+    }
         // solve func for calculating the result (toSolve)
         function solve(){
 
