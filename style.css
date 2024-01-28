@@ -90,7 +90,7 @@ body {
 
 .Answer {
     grid-column: span 5;
-    width: 100%;
+    width: 400px;
     height: 40px;
     margin: auto;
     padding: 20p 20px;
