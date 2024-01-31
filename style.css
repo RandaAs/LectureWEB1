@@ -13,7 +13,7 @@ body {
 .calculator{
     text-align: center;
     font-size: 30px; 
-    color:darkslategray;
+    color:rgb(74, 108, 108);
 }
 .container {
     width: 400px; /* Change from 400px to 100% */
